@@ -788,3 +788,25 @@ class PReLULayer : public NeuronLayer<Dtype> {
 }  // namespace caffe
 
 #endif  // CAFFE_NEURON_LAYERS_HPP_
+
+////////////////////////////////////////////////////////// by Eddie
+// Nonparametric version of ReLU
+template <typename Dtype>
+class NonParaReLULayer : public NeuronLayer<Dtype> {
+ public:
+  explicit ReLULayer(const LayerParameter& param)
+      : NeuronLayer<Dtype>(param) {}
+
+  virtual inline const char* type() const { return "NonParaReLU"; }
+
+ protected:
+  virtual void Forward_cpu(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top);
+  // virtual void Forward_gpu(const vector<Blob<Dtype>*>& bottom,
+  //     const vector<Blob<Dtype>*>& top);
+  virtual void Backward_cpu(const vector<Blob<Dtype>*>& top,
+      const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom);
+  // virtual void Backward_gpu(const vector<Blob<Dtype>*>& top,
+  //     const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom);
+};
+////////////////////////////////////////////////////////// by Eddie
