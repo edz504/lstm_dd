@@ -1,0 +1,33 @@
+1F_01: same as pre_trained model, non-LSTM structure, fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed.
+
+lstm_dm_01: 1 layer LSTM with 256D output, Behavior Reflex pipeline.
+
+vgg16_01: 1F training with VGG16 conv layers, two-step training, fix small learning rate. Fine-tune from bvlc_chenyi_vgg16net.caffemodel.
+ 
+vgg16_02: 1F training with VGG16 conv layers, two-step training, decreasing large learning rate. Fine-tune from bvlc_chenyi_vgg16net.caffemodel.
+
+lstm_01: 1 layer LSTM with 256D output, train from scratch. sequence_size=8, sequence_num=16, interval=300.
+
+lstm_02: 1 layer LSTM with 4096D output, fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed. sequence_size=8, sequence_num=16, interval=200.
+
+lstm_03: 1 layer LSTM with 2048D output, fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed. sequence_size=1, sequence_num=64, interval=200.
+
+lstm_04: 1 layer LSTM with 2048D output, fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed. sequence_size=8, sequence_num=16, interval=50.
+
+lstm_05: 1 layer LSTM with 2048D output, fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed. sequence_size=8, sequence_num=16, interval=10.
+
+lstm_06: 2 layer LSTM with 2048D output both layers, fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed. sequence_size=8, sequence_num=16, interval=200.
+
+lstm_07: 1 layer LSTM with 2048D output, also use ground truth previous time step affordance indicators as one of the LSTM inputs. fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed. sequence_size=8, sequence_num=16, interval=200.
+
+lstm_08: 1 layer LSTM with 2048D output, also use CNN estimation of previous time step affordance indicators as one of the LSTM inputs. fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed. sequence_size=1, sequence_num=64, interval=200.
+
+lstm_09: 2 layer LSTM with 2048D output, also use ground truth previous time step affordance indicators as one of the 1st layer LSTM inputs, unfactored structure. fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed. sequence_size=8, sequence_num=16, interval=200.
+
+lstm_10: 2 layer LSTM with 2048D output, also use CNN estimation of previous time step affordance indicators as one of the 1st layer LSTM inputs, unfactored structure. fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed. sequence_size=1, sequence_num=64, interval=200.
+
+lstm_11: 2 layer LSTM with 2048D output, use ground truth previous time step affordance indicators as the 1st layer LSTM input, image deep feature vector is input to the 2nd layer LSTM, factored structure. fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed. sequence_size=8, sequence_num=16, interval=200.
+
+lstm_12: 2 layer LSTM with 2048D output, use CNN estimation of previous time step affordance indicators as the 1st layer LSTM input, image deep feature vector is input to the 2nd layer LSTM, factored structure. fine-tune from driving_chenyi_iter_140000.caffemodel, conv layers fixed. sequence_size=1, sequence_num=64, interval=200.
+
+
