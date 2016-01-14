@@ -1,0 +1,10 @@
+net: "vgg16_02/driving_train_1F_stage1.prototxt"
+base_lr: 0.001
+lr_policy: "fixed"
+display: 100
+max_iter: 6000
+momentum: 0.90
+weight_decay: 0.0005
+snapshot: 6000
+snapshot_prefix: "vgg16_02/driving_train_1F"
+solver_mode: GPU

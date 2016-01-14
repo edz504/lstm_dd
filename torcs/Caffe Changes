@@ -1,0 +1,44 @@
+###### CHANGED:
+
+/include/caffe/neuron_layers.hpp   %%% declear new sigmoid layers.
+/include/caffe/data_layers.hpp     %%% declear new data layers.
+/include/caffe/loss_layers.hpp     %%% declear new euclidian loss layers.
+/include/caffe/net.hpp             %%% modified for running torcs.
+/src/caffe/net.cpp                 %%% modified for running torcs.
+/src/caffe/solver.cpp              %%% modified for running torcs.
+/src/caffe/layer_factory.cpp       %%% register new cudnn layers, for cudnn_sigmoid_hist_layer.
+/src/caffe/proto/caffe.proto       %%% define the protobuf input and configuration parameters for new layers.
+/src/caffe/layers/base_data_layer.cpp   %%% for new data layers with separate prefetch thread.
+/src/caffe/layers/base_data_layer.cu    %%% for new data layers with separate prefetch thread.
+
+
+###### ADDED:
+
+/src/caffe/layers/cudnn_sigmoid_hist_layer.cpp  %%% save current system output to be used as input in next time step, cudnn version.
+/src/caffe/layers/cudnn_sigmoid_hist_layer.cu   %%% save current system output to be used as input in next time step, cudnn version.
+/src/caffe/layers/data_driving_layer.cpp        %%% used for training a CNN without LSTM unit (1 frame input).
+/src/caffe/layers/data_hist_layer.cpp           %%% used to read last time step system output and convert it to be current LSTM input (used with sigmoid_hist_layer).
+/src/caffe/layers/data_hist_layer.cu            %%% used to read last time step system output and convert it to be current LSTM input (used with sigmoid_hist_layer).
+/src/caffe/layers/data_lstm_train_layer.cpp     %%% used to training a CNN with LSTM unit (for 1. a system do not use last time step output as LSTM unit, or 2. the last time step system output used is the actually system output (rather than ground truth)).
+/src/caffe/layers/data_lstm_train_hist_layer.cpp   %%% used to training a CNN with LSTM unit, and the last time step system output is used as LSTM input, the ground truth values are used.
+/src/caffe/layers/data_lstm_test_layer.cpp      %%% used for testing the system, for both LSTM and 1F models.
+/src/caffe/layers/data_lstm_test_layer.cu       %%% used for testing the system, for both LSTM and 1F models.
+/src/caffe/layers/euclidean_loss_driving_dm_layer.cpp   %%% euclidian loss for behavior reflex approach.
+/src/caffe/layers/euclidean_loss_driving_dm_layer.cu    %%% euclidian loss for behavior reflex approach.
+/src/caffe/layers/euclidean_loss_driving_layer.cpp      %%% euclidian loss for direct perception approach.
+/src/caffe/layers/euclidean_loss_driving_layer.cu       %%% euclidian loss for direct perception approach.
+/src/caffe/layers/sigmoid_hist_layer.cpp                %%% save current system output to be used as input in next time step.
+/src/caffe/layers/sigmoid_hist_layer.cu                 %%% save current system output to be used as input in next time step.
+/tools/torcs_benchmark.cpp                              %%% test the trained CNN on benchmark testing set.
+/tools/torcs_benchmark_draw.cpp                         %%% draw the results of different CNN models on the same testing set, for frame by frame visual comparison.
+/tools/torcs_convert_leveldb_for_lstm.cpp               %%% convert DeepDriving dataset to LSTM-ready one.
+/tools/torcs_data_collector.cpp                         %%% same frames and affordance indicators while manaully driving.
+/tools/torcs_data_collector_DM.cpp                      %%% same frames and driving controls (behavior reflex) while the AI is driving.
+/tools/torcs_run_1lane.cpp                              %%% autonomous driving in TORCS, 1-lane setting.
+/tools/torcs_run_2lane.cpp                              %%% autonomous driving in TORCS, 2-lane setting.
+/tools/torcs_run_3lane.cpp                              %%% autonomous driving in TORCS, 3-lane setting.
+/tools/torcs_run_DM.cpp                                 %%% autonomous driving in TORCS (behavior reflex).
+/tools/torcs_visualize_database.cpp                     %%% read out and display the leveldb.
+
+
+
