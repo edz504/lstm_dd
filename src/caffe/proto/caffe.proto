@@ -260,7 +260,7 @@ message ParamSpec {
 // NOTE
 // Update the next available ID when you add a new LayerParameter field.
 //
-// LayerParameter next available layer-specific ID: 135 (last added: recurrent_param)
+// LayerParameter next available layer-specific ID: 136 (last added: nprelu_param)
 message LayerParameter {
   optional string name = 1; // the layer name
   optional string type = 2; // the layer type
@@ -329,6 +329,7 @@ message LayerParameter {
   optional LRNParameter lrn_param = 118;
   optional MemoryDataParameter memory_data_param = 119;
   optional MVNParameter mvn_param = 120;
+  optional NonParaReLUParameter nprelu_param = 135;
   optional PoolingParameter pooling_param = 121;
   optional PowerParameter power_param = 122;
   optional PReLUParameter prelu_param = 131;
@@ -1063,6 +1064,14 @@ message PReLUParameter {
   // Surpassing Human-Level Performance on ImageNet Classification, 2015.
 
   // Initial value of a_i. Default is a_i=0.25 for all i.
+  optional FillerParameter filler = 1;
+  // Whether or not slope paramters are shared across channels.
+  optional bool channel_shared = 2 [default = false];
+}
+
+// Message that stores parameters used by NonParaReLULayer
+message NonParaReLUParameter {
+  // Initial value of beta_i. Default is beta_i=0.0 for all i.
   optional FillerParameter filler = 1;
   // Whether or not slope paramters are shared across channels.
   optional bool channel_shared = 2 [default = false];
