@@ -1,0 +1,10 @@
+Added:
+non_para_relu_layer.cpp
+non_para_relu_layer.cu (in progress)
+    - following prelu_layer.cpp and .cu, which have a learnable parameter too
+
+Modified:
+neuron_layers.hpp
+    - added class definition for NonParaReLULayer
+caffe.proto
+    - added layer and parameter definitions for NonParaReLULayer and NonParaReLUParameter
