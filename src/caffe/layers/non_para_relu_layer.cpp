@@ -141,6 +141,6 @@ STUB_GPU(NonParaReLULayer);
 #endif
 
 INSTANTIATE_CLASS(NonParaReLULayer);
-REGISTER_LAYER_CLASS(NonParaReLULayer);
+REGISTER_LAYER_CLASS(NonParaReLU);
 
 }  // namespace caffe
