@@ -26,8 +26,8 @@ __global__ void NonParaReLUBackward(const int n, const int channels, const int d
   CUDA_KERNEL_LOOP(index, n) {
     int c = (index / dim) % channels / div_factor;
     out_diff[index] = in_diff[index] * ((in_data[index] > 0)
-        + beta_data[c] * 1. / (1. + exp(-in[index]))
-        * (1 - 1. / (1. + exp(-in[index]))));
+        + beta_data[c] * 1. / (1. + exp(-in_data[index]))
+        * (1 - 1. / (1. + exp(-in_data[index]))));
   }
 }
 
@@ -37,7 +37,7 @@ __global__ void NonParaReLUParamBackward(const int n, const Dtype* in_diff,
     const Dtype* in_data, Dtype* out_diff) {
   CUDA_KERNEL_LOOP(index, n) {
     out_diff[index] = in_diff[index] * in_data[index] * (in_data[index] <= 0);
-    out_diff[index] = in_diff[index] * 1. / (1. + exp(-in[index]));
+    out_diff[index] = in_diff[index] * 1. / (1. + exp(-in_data[index]));
   }
 }
 

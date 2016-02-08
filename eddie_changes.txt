@@ -8,3 +8,9 @@ neuron_layers.hpp
     - added class definition for NonParaReLULayer
 caffe.proto
     - added layer and parameter definitions for NonParaReLULayer and NonParaReLUParameter
+
+
+CMake / compile notes:
+    must follow CMake instructions under Caffe installation for SMILE machine
+    modify cmake/Modules/FindAtlas.cmake as per
+    <https://github.com/BVLC/caffe/pull/2394/files>
