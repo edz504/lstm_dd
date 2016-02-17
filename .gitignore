@@ -66,9 +66,6 @@ models/*
 *leveldb
 *lmdb
 
-## Added by Eddie ##
-nonparametric/data/* # some LevelDB logs don't get filtered out by above ignore regex
-
 # build, distribute, and bins (+ python proto bindings)
 build
 .build_debug/*
@@ -94,3 +91,7 @@ LOCK
 LOG*
 CURRENT
 MANIFEST-*
+
+## Added by Eddie ##
+# some LevelDB logs don't get filtered out by above ignore regex
+*.log
