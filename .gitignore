@@ -66,6 +66,9 @@ models/*
 *leveldb
 *lmdb
 
+## Added by Eddie ##
+*.log # some LevelDB logs don't get filtered out by above ignore regex
+
 # build, distribute, and bins (+ python proto bindings)
 build
 .build_debug/*
