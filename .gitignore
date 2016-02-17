@@ -67,7 +67,7 @@ models/*
 *lmdb
 
 ## Added by Eddie ##
-*.log # some LevelDB logs don't get filtered out by above ignore regex
+nonparametric/data/* # some LevelDB logs don't get filtered out by above ignore regex
 
 # build, distribute, and bins (+ python proto bindings)
 build
