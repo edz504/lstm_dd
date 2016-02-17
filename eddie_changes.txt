@@ -1,12 +1,29 @@
+Note that in most code, files use paths relative to the main Caffe_lstm directory as
+the standard Caffe code does.
+
 Added:
-non_para_relu_layer.cpp
-non_para_relu_layer.cu
+src/caffe/layers/non_para_relu_layer.cpp
+src/caffe/layers/non_para_relu_layer.cu
     - following prelu_layer.cpp and .cu, which have a learnable parameter too
+tools/split_train_valid_test.py
+    - take original 14-dim train set, and split into X-long train set,
+      Y-long validation set, Z-long test set, adding 15th marker dimensions as well
+    - note this writes to ~/Thesis/data, but I manually copied it to nonparametric/data
+nonparametric/
+    - folder to hold nonparametric models
+nonparametric/lstm_np_01
+    - folder holding non-parametric model 1: replacing ReLU with non-parametric ReLU
+    - driving_train_lstm.prototxt follows torcs/lstm_11
+nonparametric/data
+    - folder holding data including datasets produced from split_train_valid_test.py (LevelDBs),
+      mean_files, etc.
+nonparametric/make_image_means.sh
+    - modified version of examples/imagenet/make_imagenet_means.sh
 
 Modified:
-neuron_layers.hpp
+include/caffe/neuron_layers.hpp
     - added class definition for NonParaReLULayer
-caffe.proto
+src/caffe/layers/proto/caffe.proto
     - added layer and parameter definitions for NonParaReLULayer and NonParaReLUParameter
 
 

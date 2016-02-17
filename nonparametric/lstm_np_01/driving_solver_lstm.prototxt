@@ -1,0 +1,16 @@
+net: "lstm_np_01_eddie/driving_train_lstm.prototxt"
+test_iter: 10000
+# ^ Chenyi has not provided batch size in params, so we do the whole test set at once
+test_interval: 10
+# ^ we want granular loss data
+base_lr: 0.001
+lr_policy: "step"
+gamma: 0.9
+stepsize: 8000
+display: 20
+max_iter: 20000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 10000
+snapshot_prefix: "lstm_np_01_eddie/driving_train_lstm_all"
+solver_mode: GPU
