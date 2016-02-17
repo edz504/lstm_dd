@@ -7,11 +7,11 @@ layer {
   top: "hist"
   top: "marker"
   data_lstm_train_hist_param {
-    source: "/home/smile/edzhou/Thesis/data/TORCS_Training_1F"
+    source: "nonparametric/data/TORCS_smooth_np_train"
     sequence_size: 8
     sequence_num: 16
     interval: 200
-    mean_file: "torcs/pre_trained/driving_mean_1F.binaryproto"
+    mean_file: "nonparametric/data/TORCS_smooth_np_train_mean.binaryproto"
   }
 }
 layer {

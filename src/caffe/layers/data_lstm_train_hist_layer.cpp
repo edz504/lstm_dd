@@ -24,7 +24,8 @@
 #define resize_width 280
 #define resize_height 210
 #define random(x) (rand()%x)
-#define para_dim 14     // dimension of output
+// #define para_dim 14     // dimension of output
+#define para_dim 15     // dimension of output
 #define total_frames 484815 //484815
 //////////////// by chenyi
 

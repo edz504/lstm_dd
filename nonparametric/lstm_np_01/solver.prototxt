@@ -1,4 +1,4 @@
-net: "lstm_np_01_eddie/driving_train_lstm.prototxt"
+net: "nonparametric/lstm_np_01/train_valid.prototxt"
 test_iter: 10000
 # ^ Chenyi has not provided batch size in params, so we do the whole test set at once
 test_interval: 10
@@ -12,5 +12,5 @@ max_iter: 20000
 momentum: 0.9
 weight_decay: 0.0005
 snapshot: 10000
-snapshot_prefix: "lstm_np_01_eddie/driving_train_lstm_all"
-solver_mode: GPU
+snapshot_prefix: "nonparametric/lstm_np_01/snapshot"
+solver_mode: CPU

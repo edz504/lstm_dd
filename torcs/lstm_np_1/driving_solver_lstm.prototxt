@@ -9,4 +9,4 @@ momentum: 0.9
 weight_decay: 0.0005
 snapshot: 10000
 snapshot_prefix: "torcs/lstm_np_1/driving_train_lstm_all"
-solver_mode: GPU
+solver_mode: CPU

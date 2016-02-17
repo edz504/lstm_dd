@@ -26,14 +26,13 @@ db_test = plyvel.DB('/home/smile/edzhou/Thesis/data/TORCS_smooth_np_test',
                     error_if_exists=True)
 
 datum = caffe_pb2.Datum()
-datum_split = caffe_pb2.Datum()
 N = 484815
 # train_N = int(N * 0.2)
 # valid_N = int(N * 0.4)
 # assert (N - train_N - valid_N) == valid_N
-train_N = 10000
-valid_N = 10000
-test_N = 5000
+train_N = 100000
+valid_N = 100000
+test_N = 50000
 
 print ('''Train indices: [0, {0})\n'''
        '''Validation indices: [{0}, {1})\n'''
@@ -53,11 +52,16 @@ for i, (key, value) in enumerate(db):
     # Parse leveldb value into Datum
     datum.ParseFromString(value)
 
+    # Create new Datum object for the new Datum
+    datum_split = caffe_pb2.Datum()
+
     # Set new datum values
     datum_split.channels = datum.channels
     datum_split.height = datum.height
     datum_split.width = datum.width
     datum_split.data = datum.data                   # X
+
+    new_y = []
     for affordance_indicator in datum.float_data:   # y
         datum_split.float_data.append(affordance_indicator)   
 
@@ -92,6 +96,7 @@ for i, (key, value) in enumerate(db):
             print 'Writing final train batch, i = {0}'.format(i)
             wb_train.write()
             del wb_train
+            db_train.close()
         wb_valid.put(key, datum_split.SerializeToString())
         if i % BATCH_SIZE == 0:
             print 'Writing valid batch, i = {0}'.format(i)
@@ -104,6 +109,7 @@ for i, (key, value) in enumerate(db):
             print 'Writing final valid batch, i = {0}'.format(i)
             wb_valid.write()
             del wb_valid
+            db_valid.close()
         wb_test.put(key, datum_split.SerializeToString())
         if i % BATCH_SIZE == 0:
             print 'Writing test batch, i = {0}'.format(i)
@@ -120,8 +126,6 @@ wb_test.write()
 del wb_test
 
 db.close()
-db_train.close()
-db_valid.close()
 db_test.close()
 
 end = time.time()
