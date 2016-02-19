@@ -64,7 +64,7 @@ layer {
 }
 layer {
   name: "relu1"
-  type: "NonParaReLU"
+  type: "ReLU"
   bottom: "conv1"
   top: "conv1"
 }
@@ -120,7 +120,7 @@ layer {
 }
 layer {
   name: "relu2"
-  type: "NonParaReLU"
+  type: "ReLU"
   bottom: "conv2"
   top: "conv2"
 }
@@ -175,7 +175,7 @@ layer {
 }
 layer {
   name: "relu3"
-  type: "NonParaReLU"
+  type: "ReLU"
   bottom: "conv3"
   top: "conv3"
 }
@@ -209,7 +209,7 @@ layer {
 }
 layer {
   name: "relu4"
-  type: "NonParaReLU"
+  type: "ReLU"
   bottom: "conv4"
   top: "conv4"
 }
@@ -243,7 +243,7 @@ layer {
 }
 layer {
   name: "relu5"
-  type: "NonParaReLU"
+  type: "ReLU"
   bottom: "conv5"
   top: "conv5"
 }
@@ -285,7 +285,7 @@ layer {
 }
 layer {
   name: "relu6"
-  type: "NonParaReLU"
+  type: "ReLU"
   bottom: "fc6"
   top: "fc6"
 }

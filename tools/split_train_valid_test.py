@@ -9,19 +9,19 @@ import time
 
 start = time.time()
 
-with open('frames_all.txt', 'rb') as f:
+with open('tools/frames_all.txt', 'rb') as f:
     starting_frames = [int(l) for l in f.read().split('\n') if len(l) > 0]
 
 db = plyvel.DB('/home/smile/edzhou/Thesis/data/TORCS_Training_1F')
 
 # Split into train / valid / test, and also add marker data in.
-db_train = plyvel.DB('/home/smile/edzhou/Thesis/data/TORCS_smooth_np_train',
+db_train = plyvel.DB('nonparametric/data/TORCS_smooth_np_train',
                      create_if_missing=True,
                      error_if_exists=True)
-db_valid = plyvel.DB('/home/smile/edzhou/Thesis/data/TORCS_smooth_np_valid',
+db_valid = plyvel.DB('nonparametric/data/TORCS_smooth_np_valid',
                      create_if_missing=True,
                      error_if_exists=True)
-db_test = plyvel.DB('/home/smile/edzhou/Thesis/data/TORCS_smooth_np_test',
+db_test = plyvel.DB('nonparametric/data/TORCS_smooth_np_test',
                     create_if_missing=True,
                     error_if_exists=True)
 
@@ -30,9 +30,15 @@ N = 484815
 # train_N = int(N * 0.2)
 # valid_N = int(N * 0.4)
 # assert (N - train_N - valid_N) == valid_N
-train_N = 100000
-valid_N = 100000
-test_N = 50000
+train_N = 10000
+valid_N = 10000
+test_N = 10000
+
+# Create new keys (note, each database has to start from '00000001' and go to
+# N) in order for the data_lstm_train_hist_layer to work.
+keys = ([''.join(['0'] * (8 - len(str(i)))) + str(i) for i in xrange(1, train_N + 1)] +
+        [''.join(['0'] * (8 - len(str(i)))) + str(i) for i in xrange(1, valid_N + 1)] +
+        [''.join(['0'] * (8 - len(str(i)))) + str(i) for i in xrange(1, test_N + 1)])
 
 print ('''Train indices: [0, {0})\n'''
        '''Validation indices: [{0}, {1})\n'''
@@ -47,7 +53,7 @@ wb_test = db_test.write_batch()
 
 BATCH_SIZE = 100
 
-for i, (key, value) in enumerate(db):
+for i, (k, value) in enumerate(db):
     
     # Parse leveldb value into Datum
     datum.ParseFromString(value)
@@ -80,7 +86,7 @@ for i, (key, value) in enumerate(db):
 
     if 0 <= i < train_N:
         # use same key as original db
-        wb_train.put(key, datum_split.SerializeToString())
+        wb_train.put(keys[i], datum_split.SerializeToString())
 
         # Every BATCH_SIZE values, write the batch and create a new one
         if i % BATCH_SIZE == 0 and i > 0: # Don't write the batch on the first one
@@ -97,7 +103,7 @@ for i, (key, value) in enumerate(db):
             wb_train.write()
             del wb_train
             db_train.close()
-        wb_valid.put(key, datum_split.SerializeToString())
+        wb_valid.put(keys[i], datum_split.SerializeToString())
         if i % BATCH_SIZE == 0:
             print 'Writing valid batch, i = {0}'.format(i)
             wb_valid.write()
@@ -110,7 +116,7 @@ for i, (key, value) in enumerate(db):
             wb_valid.write()
             del wb_valid
             db_valid.close()
-        wb_test.put(key, datum_split.SerializeToString())
+        wb_test.put(keys[i], datum_split.SerializeToString())
         if i % BATCH_SIZE == 0:
             print 'Writing test batch, i = {0}'.format(i)
             wb_test.write()

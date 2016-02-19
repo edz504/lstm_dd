@@ -9,22 +9,32 @@ tools/split_train_valid_test.py
     - take original 14-dim train set, and split into X-long train set,
       Y-long validation set, Z-long test set, adding 15th marker dimensions as well
     - note this writes to ~/Thesis/data, but I manually copied it to nonparametric/data
+torcs/lstm_np_1/
+    - experimental version of new dataset without TEST layers in nonparametric/lstm_np_01
 nonparametric/
     - folder to hold nonparametric models
-nonparametric/lstm_np_01
-    - folder holding non-parametric model 1: replacing ReLU with non-parametric ReLU
-    - driving_train_lstm.prototxt follows torcs/lstm_11
 nonparametric/data
     - folder holding data including datasets produced from split_train_valid_test.py (LevelDBs),
       mean_files, etc.
 nonparametric/make_image_means.sh
     - modified version of examples/imagenet/make_imagenet_means.sh
 
+nonparametric/lstm_np_para_init
+    - model for parametric initializations of nonparametric models
+    - train_valid.prototxt follows torcs/lstm_11, added TEST layers
+    - solver.prototxt follows torcs/lstm_11, modified test_iter and test_interval
+nonparametric/lstm_np_01
+    - folder holding non-parametric model 1: replacing ReLU with non-parametric ReLU
+    - train_valid.prototxt follows nonparametric/lstm_np_para_init, all ReLU layers replaced with NonParaReLU
+    - solver.prototxt follows nonparametric/lstm_np_para_init
+
 Modified:
 include/caffe/neuron_layers.hpp
     - added class definition for NonParaReLULayer
 src/caffe/layers/proto/caffe.proto
     - added layer and parameter definitions for NonParaReLULayer and NonParaReLUParameter
+src/caffe/layers/data_lstm_train_hist_layer.cpp
+    - redefined total_frames to 10000 for new training
 
 
 CMake / compile notes:
