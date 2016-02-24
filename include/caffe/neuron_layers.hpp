@@ -790,17 +790,17 @@ class PReLULayer : public NeuronLayer<Dtype> {
 // y_i = \max(0, x_i) + beta_i * sigmoid(x_i)
 
 template <typename Dtype>
-class NonParaReLULayer : public NeuronLayer<Dtype> {
+class NonParaReLUSigmoidLayer : public NeuronLayer<Dtype> {
  public:
   /**
-   * @param param provides NonParaReLUParameter prelu_param,
-   *     with NonParaReLULayer options:
+   * @param param provides NonParaReLUSigmoidParameter prelu_param,
+   *     with NonParaReLUSigmoidLayer options:
    *   - filler (\b optional, FillerParameter,
    *     default {'type': constant 'value': 0.0}).
    *   - channel_shared (\b optional, default false).
    *     betas are shared across channels.
    */
-  explicit NonParaReLULayer(const LayerParameter& param)
+  explicit NonParaReLUSigmoidLayer(const LayerParameter& param)
       : NeuronLayer<Dtype>(param) {}
 
   virtual void LayerSetUp(const vector<Blob<Dtype>*>& bottom,
@@ -809,7 +809,7 @@ class NonParaReLULayer : public NeuronLayer<Dtype> {
   virtual void Reshape(const vector<Blob<Dtype>*>& bottom,
       const vector<Blob<Dtype>*>& top);
 
-  virtual inline const char* type() const { return "NonParaReLU"; }
+  virtual inline const char* type() const { return "NonParaReLUSigmoid"; }
 
  protected:
   virtual void Forward_cpu(const vector<Blob<Dtype>*>& bottom,

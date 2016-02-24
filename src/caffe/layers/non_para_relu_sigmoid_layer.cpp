@@ -13,11 +13,11 @@ inline Dtype sigmoid(Dtype x) {
 }
 
 template <typename Dtype>
-void NonParaReLULayer<Dtype>::LayerSetUp(const vector<Blob<Dtype>*>& bottom,
+void NonParaReLUSigmoidLayer<Dtype>::LayerSetUp(const vector<Blob<Dtype>*>& bottom,
     const vector<Blob<Dtype>*>& top) {
   CHECK_GE(bottom[0]->num_axes(), 2)
       << "Number of axes of bottom blob must be >=2.";
-  NonParaReLUParameter nprelu_param = this->layer_param().nprelu_param();
+  NonParaReLUSigmoidParameter nprelu_param = this->layer_param().nprelu_param();
   int channels = bottom[0]->channels();
   channel_shared_ = nprelu_param.channel_shared();
   if (this->blobs_.size() > 0) {
@@ -55,7 +55,7 @@ void NonParaReLULayer<Dtype>::LayerSetUp(const vector<Blob<Dtype>*>& bottom,
 }
 
 template <typename Dtype>
-void NonParaReLULayer<Dtype>::Reshape(const vector<Blob<Dtype>*>& bottom,
+void NonParaReLUSigmoidLayer<Dtype>::Reshape(const vector<Blob<Dtype>*>& bottom,
     const vector<Blob<Dtype>*>& top) {
   CHECK_GE(bottom[0]->num_axes(), 2)
       << "Number of axes of bottom blob must be >=2.";
@@ -67,7 +67,7 @@ void NonParaReLULayer<Dtype>::Reshape(const vector<Blob<Dtype>*>& bottom,
 }
 
 template <typename Dtype>
-void NonParaReLULayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& bottom,
+void NonParaReLUSigmoidLayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& bottom,
     const vector<Blob<Dtype>*>& top) {
   const Dtype* bottom_data = bottom[0]->cpu_data();
   Dtype* top_data = top[0]->mutable_cpu_data();
@@ -92,7 +92,7 @@ void NonParaReLULayer<Dtype>::Forward_cpu(const vector<Blob<Dtype>*>& bottom,
 }
 
 template <typename Dtype>
-void NonParaReLULayer<Dtype>::Backward_cpu(const vector<Blob<Dtype>*>& top,
+void NonParaReLUSigmoidLayer<Dtype>::Backward_cpu(const vector<Blob<Dtype>*>& top,
     const vector<bool>& propagate_down,
     const vector<Blob<Dtype>*>& bottom) {
   const Dtype* bottom_data = bottom[0]->cpu_data();
@@ -137,10 +137,10 @@ void NonParaReLULayer<Dtype>::Backward_cpu(const vector<Blob<Dtype>*>& top,
 
 
 #ifdef CPU_ONLY
-STUB_GPU(NonParaReLULayer);
+STUB_GPU(NonParaReLUSigmoidLayer);
 #endif
 
-INSTANTIATE_CLASS(NonParaReLULayer);
-REGISTER_LAYER_CLASS(NonParaReLU);
+INSTANTIATE_CLASS(NonParaReLUSigmoidLayer);
+REGISTER_LAYER_CLASS(NonParaReLUSigmoid);
 
 }  // namespace caffe

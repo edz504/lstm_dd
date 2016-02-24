@@ -8,7 +8,7 @@ namespace caffe {
 
 // CUDA kernel for forward
 template <typename Dtype>
-__global__ void NonParaReLUForward(const int n, const int channels, const int dim,
+__global__ void NonParaReLUSigmoidForward(const int n, const int channels, const int dim,
     const Dtype* in, Dtype* out, const Dtype* beta_data,
     const int div_factor) {
   CUDA_KERNEL_LOOP(index, n) {
@@ -20,7 +20,7 @@ __global__ void NonParaReLUForward(const int n, const int channels, const int di
 
 // CUDA kernel for bottom backward
 template <typename Dtype>
-__global__ void NonParaReLUBackward(const int n, const int channels, const int dim,
+__global__ void NonParaReLUSigmoidBackward(const int n, const int channels, const int dim,
     const Dtype* in_diff, const Dtype* in_data, Dtype* out_diff,
     const Dtype* beta_data, const int div_factor) {
   CUDA_KERNEL_LOOP(index, n) {
@@ -33,7 +33,7 @@ __global__ void NonParaReLUBackward(const int n, const int channels, const int d
 
 // CUDA kernel for element-wise parameter backward
 template <typename Dtype>
-__global__ void NonParaReLUParamBackward(const int n, const Dtype* in_diff,
+__global__ void NonParaReLUSigmoidParamBackward(const int n, const Dtype* in_diff,
     const Dtype* in_data, Dtype* out_diff) {
   CUDA_KERNEL_LOOP(index, n) {
     out_diff[index] = in_diff[index] * in_data[index] * (in_data[index] <= 0);
@@ -42,7 +42,7 @@ __global__ void NonParaReLUParamBackward(const int n, const Dtype* in_diff,
 }
 
 template <typename Dtype>
-void NonParaReLULayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
+void NonParaReLUSigmoidLayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
     const vector<Blob<Dtype>*>& top) {
   const Dtype* bottom_data = bottom[0]->gpu_data();
   Dtype* top_data = top[0]->mutable_gpu_data();
@@ -58,13 +58,13 @@ void NonParaReLULayer<Dtype>::Forward_gpu(const vector<Blob<Dtype>*>& bottom,
   }
 
   // NOLINT_NEXT_LINE(whitespace/operators)
-  NonParaReLUForward<Dtype><<<CAFFE_GET_BLOCKS(count), CAFFE_CUDA_NUM_THREADS>>>(
+  NonParaReLUSigmoidForward<Dtype><<<CAFFE_GET_BLOCKS(count), CAFFE_CUDA_NUM_THREADS>>>(
       count, channels, dim, bottom_data, top_data, beta_data, div_factor);
   CUDA_POST_KERNEL_CHECK;
 }
 
 template <typename Dtype>
-void NonParaReLULayer<Dtype>::Backward_gpu(const vector<Blob<Dtype>*>& top,
+void NonParaReLUSigmoidLayer<Dtype>::Backward_gpu(const vector<Blob<Dtype>*>& top,
     const vector<bool>& propagate_down,
     const vector<Blob<Dtype>*>& bottom) {
   const Dtype* bottom_data = bottom[0]->gpu_data();
@@ -92,7 +92,7 @@ void NonParaReLULayer<Dtype>::Backward_gpu(const vector<Blob<Dtype>*>& top,
       Dtype* temp_buff = multiplier_.mutable_gpu_diff();
       // compute element-wise diff
       // NOLINT_NEXT_LINE(whitespace/operators)
-      NonParaReLUParamBackward<Dtype><<<CAFFE_GET_BLOCKS(count),
+      NonParaReLUSigmoidParamBackward<Dtype><<<CAFFE_GET_BLOCKS(count),
           CAFFE_CUDA_NUM_THREADS>>>(
           cdim, top_diff + top[0]->offset(n),
           bottom_data + bottom[0]->offset(n), multiplier_.mutable_gpu_diff());
@@ -118,7 +118,7 @@ void NonParaReLULayer<Dtype>::Backward_gpu(const vector<Blob<Dtype>*>& top,
     const Dtype* beta_data = this->blobs_[0]->gpu_data();
     int div_factor = channel_shared_ ? channels : 1;
     // NOLINT_NEXT_LINE(whitespace/operators)
-    NonParaReLUBackward<Dtype><<<CAFFE_GET_BLOCKS(count),
+    NonParaReLUSigmoidBackward<Dtype><<<CAFFE_GET_BLOCKS(count),
         CAFFE_CUDA_NUM_THREADS>>>(
         count, channels, dim, top_diff, bottom_data, bottom_diff, beta_data,
         div_factor);
@@ -127,7 +127,7 @@ void NonParaReLULayer<Dtype>::Backward_gpu(const vector<Blob<Dtype>*>& top,
 }
 
 
-INSTANTIATE_LAYER_GPU_FUNCS(NonParaReLULayer);
+INSTANTIATE_LAYER_GPU_FUNCS(NonParaReLUSigmoidLayer);
 
 
 }  // namespace caffe

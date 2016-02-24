@@ -6,7 +6,7 @@ import re
 import pandas as pd
 
 
-with open('parametric_init_log_20k-50k.txt', 'rb') as f:
+with open('lstm_np_01/lstm_np_01_log.txt', 'rb') as f:
     lines = f.read().split('\n')
 
 train_losses = []
@@ -21,9 +21,9 @@ for line in lines:
             line[line.index('loss = ') + 7: line.index('(') - 1]))
 
 df = pd.DataFrame({
-    'iteration': xrange(201, 501),
+    'iteration': xrange(501, 1001),
     'training_loss': train_losses,
     'testing_loss': test_losses[:-1] # Extra last tesing iteration
     })
 
-df.to_csv('parametric_init_losses_20k-50k.csv', index=False)
+df.to_csv('lstm_np_01/lstm_np_01_loss.csv', index=False)
