@@ -6,7 +6,7 @@ import re
 import pandas as pd
 
 
-with open('lstm_np_01/lstm_np_01_log.txt', 'rb') as f:
+with open('lstm_np_03/lstm_np_03_log.txt', 'rb') as f:
     lines = f.read().split('\n')
 
 train_losses = []
@@ -26,4 +26,4 @@ df = pd.DataFrame({
     'testing_loss': test_losses[:-1] # Extra last tesing iteration
     })
 
-df.to_csv('lstm_np_01/lstm_np_01_loss.csv', index=False)
+df.to_csv('lstm_np_03/lstm_np_03_loss.csv', index=False)

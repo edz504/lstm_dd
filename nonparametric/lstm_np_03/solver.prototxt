@@ -1,0 +1,16 @@
+net: "nonparametric/lstm_np_03/train_valid.prototxt"
+test_iter: 78
+# ^ Note batch size is 8 * 16 = 128, and we have 10000 total images, so 10000/128 ~ 78
+test_interval: 500
+base_lr: 0.001
+lr_policy: "step"
+gamma: 0.9
+stepsize: 8000
+display: 500
+max_iter: 50000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 10000
+snapshot_prefix: "nonparametric/lstm_np_03/np_03"
+solver_mode: GPU
+# debug_info: true

@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <cstring>
 #include <vector>
+#include <cmath>
 
 #include "google/protobuf/text_format.h"
 #include "gtest/gtest.h"
@@ -115,6 +116,40 @@ class NeuronLayerTest : public MultiDeviceTest<TypeParam> {
       EXPECT_EQ(top_data[i],
           std::max(bottom_data[i], (Dtype)(0))
           + slope_data[c] * std::min(bottom_data[i], (Dtype)(0)));
+    }
+  }
+
+  void TestNonParaReLUSigmoid(NonParaReLUSigmoidLayer<Dtype> *layer) {
+    layer->Forward(this->blob_bottom_vec_, this->blob_top_vec_);
+    const Dtype* bottom_data = this->blob_bottom_->cpu_data();
+    const Dtype* top_data = this->blob_top_->cpu_data();
+    const Dtype* beta_data = layer->blobs()[0]->cpu_data();
+    int hw = this->blob_bottom_->height() * this->blob_bottom_->width();
+    int channels = this->blob_bottom_->channels();
+    bool channel_shared = layer->layer_param().nprelu_sigmoid_param().channel_shared();
+    for (int i = 0; i < this->blob_bottom_->count(); ++i) {
+      int c = channel_shared ? 0 : (i / hw) % channels;
+      EXPECT_EQ(top_data[i],
+          std::max(bottom_data[i], Dtype(0))
+          + beta_data[c] * (1. / (1 + exp(-bottom_data[i]))));
+    }
+  }
+
+  void TestNonParaReLUSinCos(NonParaReLUSinCosLayer<Dtype> *layer) {
+    layer->Forward(this->blob_bottom_vec_, this->blob_top_vec_);
+    const Dtype* bottom_data = this->blob_bottom_->cpu_data();
+    const Dtype* top_data = this->blob_top_->cpu_data();
+    const Dtype* beta_sin_data = layer->blobs()[0]->cpu_data();
+    const Dtype* beta_cos_data = layer->blobs()[1]->cpu_data();
+    int hw = this->blob_bottom_->height() * this->blob_bottom_->width();
+    int channels = this->blob_bottom_->channels();
+    bool channel_shared = layer->layer_param().nprelu_sigmoid_param().channel_shared();
+    for (int i = 0; i < this->blob_bottom_->count(); ++i) {
+      int c = channel_shared ? 0 : (i / hw) % channels;
+      EXPECT_EQ(top_data[i],
+          std::max(bottom_data[i], Dtype(0))
+          + beta_sin_data[c] * sin(bottom_data[i])
+          + beta_cos_data[c] * cos(bottom_data[i]));
     }
   }
 };
@@ -586,6 +621,94 @@ TYPED_TEST(NeuronLayerTest, TestPReLUInPlace) {
     EXPECT_EQ(prelu.blobs()[0]->cpu_diff()[s],
         prelu2.blobs()[0]->cpu_diff()[s]);
   }
+}
+
+TYPED_TEST(NeuronLayerTest, TestNonParaReLUSigmoidParam) {
+  typedef typename TypeParam::Dtype Dtype;
+  LayerParameter layer_param;
+  NonParaReLUSigmoidLayer<Dtype> layer(layer_param);
+  layer.SetUp(this->blob_bottom_vec_, this->blob_top_vec_);
+  const Dtype* betas = layer.blobs()[0]->cpu_data();
+  int count = layer.blobs()[0]->count();
+  for (int i = 0; i < count; ++i, ++betas) {
+    EXPECT_EQ(*betas, 0.0);
+  }
+}
+
+TYPED_TEST(NeuronLayerTest, TestNonParaReLUSigmoidForward) {
+  typedef typename TypeParam::Dtype Dtype;
+  LayerParameter layer_param;
+  NonParaReLUSigmoidLayer<Dtype> layer(layer_param);
+  layer.SetUp(this->blob_bottom_vec_, this->blob_top_vec_);
+  shared_ptr<Filler<Dtype> > filler;
+  FillerParameter filler_param;
+  filler_param.set_type("constant");
+  filler_param.set_value(0.0);
+  filler.reset(GetFiller<Dtype>(filler_param));
+  filler->Fill(layer.blobs()[0].get());
+  this->TestNonParaReLUSigmoid(&layer);
+}
+
+TYPED_TEST(NeuronLayerTest, TestNonParaReLUSigmoidGradient) {
+  typedef typename TypeParam::Dtype Dtype;
+  LayerParameter layer_param;
+  NonParaReLUSigmoidLayer<Dtype> layer(layer_param);
+  layer.SetUp(this->blob_bottom_vec_, this->blob_top_vec_);
+  shared_ptr<Filler<Dtype> > filler;
+  FillerParameter filler_param;
+  filler_param.set_type("constant");
+  filler_param.set_value(0.0);
+  filler.reset(GetFiller<Dtype>(filler_param));
+  filler->Fill(layer.blobs()[0].get());
+  GradientChecker<Dtype> checker(1e-2, 1e-3, 1701, 0., 0.01);
+  checker.CheckGradientExhaustive(&layer, this->blob_bottom_vec_,
+      this->blob_top_vec_);
+}
+
+TYPED_TEST(NeuronLayerTest, TestNonParaReLUSinCosParam) {
+  typedef typename TypeParam::Dtype Dtype;
+  LayerParameter layer_param;
+  NonParaReLUSinCosLayer<Dtype> layer(layer_param);
+  layer.SetUp(this->blob_bottom_vec_, this->blob_top_vec_);
+  const Dtype* betas_sin = layer.blobs()[0]->cpu_data();
+  const Dtype* betas_cos = layer.blobs()[1]->cpu_data();
+  int count = layer.blobs()[0]->count();
+  for (int i = 0; i < count; ++i, ++betas_sin, ++betas_cos) {
+    EXPECT_EQ(*betas_sin, 0.0);
+    EXPECT_EQ(*betas_cos, 0.0);
+  }
+}
+
+TYPED_TEST(NeuronLayerTest, TestNonParaReLUSinCosForward) {
+  typedef typename TypeParam::Dtype Dtype;
+  LayerParameter layer_param;
+  NonParaReLUSinCosLayer<Dtype> layer(layer_param);
+  layer.SetUp(this->blob_bottom_vec_, this->blob_top_vec_);
+  shared_ptr<Filler<Dtype> > filler;
+  FillerParameter filler_param;
+  filler_param.set_type("constant");
+  filler_param.set_value(0.0);
+  filler.reset(GetFiller<Dtype>(filler_param));
+  filler->Fill(layer.blobs()[0].get());
+  filler->Fill(layer.blobs()[1].get());
+  this->TestNonParaReLUSinCos(&layer);
+}
+
+TYPED_TEST(NeuronLayerTest, TestNonParaReLUSinCosGradient) {
+  typedef typename TypeParam::Dtype Dtype;
+  LayerParameter layer_param;
+  NonParaReLUSinCosLayer<Dtype> layer(layer_param);
+  layer.SetUp(this->blob_bottom_vec_, this->blob_top_vec_);
+  shared_ptr<Filler<Dtype> > filler;
+  FillerParameter filler_param;
+  filler_param.set_type("constant");
+  filler_param.set_value(0.0);
+  filler.reset(GetFiller<Dtype>(filler_param));
+  filler->Fill(layer.blobs()[0].get());
+  filler->Fill(layer.blobs()[1].get());
+  GradientChecker<Dtype> checker(1e-2, 1e-4, 1701, 0., 0.01);
+  checker.CheckGradientExhaustive(&layer, this->blob_bottom_vec_,
+      this->blob_top_vec_);
 }
 
 #ifdef USE_CUDNN

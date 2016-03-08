@@ -42,7 +42,7 @@ Modified:
 include/caffe/neuron_layers.hpp
     - added class definition for NonParaReLUSigmoidLayer
     - added class definition for NonParaReLUSinCosLayer
-src/caffe/layers/caffe.proto
+src/caffe/proto/caffe.proto
     - added layer and parameter definitions for NonParaReLUSigmoidLayer and NonParaReLUSigmoidParameter
     - added layer and parameter definitions for NonParaReLUSinCosLayer and NonParaReLUSinCosParameter
 src/caffe/layers/data_lstm_train_hist_layer.cpp

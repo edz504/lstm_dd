@@ -1,0 +1,1378 @@
+Cuda number of devices: 1
+Current device id: 0
+ImageDataLayerTest/0.
+  TestRead
+  TestResize
+  TestReshape
+  TestShuffle
+ImageDataLayerTest/1.
+  TestRead
+  TestResize
+  TestReshape
+  TestShuffle
+ImageDataLayerTest/2.
+  TestRead
+  TestResize
+  TestReshape
+  TestShuffle
+ImageDataLayerTest/3.
+  TestRead
+  TestResize
+  TestReshape
+  TestShuffle
+LSTMLayerTest/0.
+  TestSetUp
+  TestForward
+  TestLSTMUnitSetUp
+  TestLSTMUnitGradient
+  TestLSTMUnitGradientNonZeroFlush
+  TestGradient
+  TestGradientNonZeroFlush
+  TestGradientNonZeroFlushBufferSize2
+LSTMLayerTest/1.
+  TestSetUp
+  TestForward
+  TestLSTMUnitSetUp
+  TestLSTMUnitGradient
+  TestLSTMUnitGradientNonZeroFlush
+  TestGradient
+  TestGradientNonZeroFlush
+  TestGradientNonZeroFlushBufferSize2
+LSTMLayerTest/2.
+  TestSetUp
+  TestForward
+  TestLSTMUnitSetUp
+  TestLSTMUnitGradient
+  TestLSTMUnitGradientNonZeroFlush
+  TestGradient
+  TestGradientNonZeroFlush
+  TestGradientNonZeroFlushBufferSize2
+LSTMLayerTest/3.
+  TestSetUp
+  TestForward
+  TestLSTMUnitSetUp
+  TestLSTMUnitGradient
+  TestLSTMUnitGradientNonZeroFlush
+  TestGradient
+  TestGradientNonZeroFlush
+  TestGradientNonZeroFlushBufferSize2
+EmbedLayerTest/0.
+  TestSetUp
+  TestForward
+  TestForwardWithBias
+  TestGradient
+  TestGradientWithBias
+EmbedLayerTest/1.
+  TestSetUp
+  TestForward
+  TestForwardWithBias
+  TestGradient
+  TestGradientWithBias
+EmbedLayerTest/2.
+  TestSetUp
+  TestForward
+  TestForwardWithBias
+  TestGradient
+  TestGradientWithBias
+EmbedLayerTest/3.
+  TestSetUp
+  TestForward
+  TestForwardWithBias
+  TestGradient
+  TestGradientWithBias
+SigmoidCrossEntropyLossLayerTest/0.
+  TestSigmoidCrossEntropyLoss
+  TestGradient
+SigmoidCrossEntropyLossLayerTest/1.
+  TestSigmoidCrossEntropyLoss
+  TestGradient
+SigmoidCrossEntropyLossLayerTest/2.
+  TestSigmoidCrossEntropyLoss
+  TestGradient
+SigmoidCrossEntropyLossLayerTest/3.
+  TestSigmoidCrossEntropyLoss
+  TestGradient
+StochasticPoolingLayerTest/0.
+  TestSetup
+  TestStochasticGPU
+  TestStochasticGPUTestPhase
+  TestGradientGPU
+StochasticPoolingLayerTest/1.
+  TestSetup
+  TestStochasticGPU
+  TestStochasticGPUTestPhase
+  TestGradientGPU
+MultinomialLogisticLossLayerTest/0.
+  TestGradientCPU
+MultinomialLogisticLossLayerTest/1.
+  TestGradientCPU
+EltwiseLayerTest/0.
+  TestSetUp
+  TestProd
+  TestSum
+  TestSumCoeff
+  TestSumBlobCoeff
+  TestStableProdGradient
+  TestUnstableProdGradient
+  TestSumGradient
+  TestSumCoeffGradient
+  TestSumBlobCoeffGradient
+  TestMax
+  TestMaxGradient
+EltwiseLayerTest/1.
+  TestSetUp
+  TestProd
+  TestSum
+  TestSumCoeff
+  TestSumBlobCoeff
+  TestStableProdGradient
+  TestUnstableProdGradient
+  TestSumGradient
+  TestSumCoeffGradient
+  TestSumBlobCoeffGradient
+  TestMax
+  TestMaxGradient
+EltwiseLayerTest/2.
+  TestSetUp
+  TestProd
+  TestSum
+  TestSumCoeff
+  TestSumBlobCoeff
+  TestStableProdGradient
+  TestUnstableProdGradient
+  TestSumGradient
+  TestSumCoeffGradient
+  TestSumBlobCoeffGradient
+  TestMax
+  TestMaxGradient
+EltwiseLayerTest/3.
+  TestSetUp
+  TestProd
+  TestSum
+  TestSumCoeff
+  TestSumBlobCoeff
+  TestStableProdGradient
+  TestUnstableProdGradient
+  TestSumGradient
+  TestSumCoeffGradient
+  TestSumBlobCoeffGradient
+  TestMax
+  TestMaxGradient
+NeuronLayerTest/0.
+  TestAbsVal
+  TestAbsGradient
+  TestReLU
+  TestReLUGradient
+  TestReLUWithNegativeSlope
+  TestReLUGradientWithNegativeSlope
+  TestSigmoid
+  TestSigmoidGradient
+  TestTanH
+  TestTanHGradient
+  TestExpLayer
+  TestExpGradient
+  TestExpLayerBase2
+  TestExpGradientBase2
+  TestExpLayerBase2Shift1
+  TestExpGradientBase2Shift1
+  TestExpLayerBase2Scale3
+  TestExpGradientBase2Scale3
+  TestExpLayerBase2Shift1Scale3
+  TestExpGradientBase2Shift1Scale3
+  TestDropoutHalf
+  TestDropoutThreeQuarters
+  TestDropoutTestPhase
+  TestDropoutGradient
+  TestDropoutGradientTest
+  TestBNLL
+  TestBNLLGradient
+  TestPReLUParam
+  TestPReLUForward
+  TestPReLUForwardChannelShared
+  TestPReLUGradient
+  TestPReLUGradientChannelShared
+  TestPReLUConsistencyReLU
+  TestPReLUInPlace
+NeuronLayerTest/1.
+  TestAbsVal
+  TestAbsGradient
+  TestReLU
+  TestReLUGradient
+  TestReLUWithNegativeSlope
+  TestReLUGradientWithNegativeSlope
+  TestSigmoid
+  TestSigmoidGradient
+  TestTanH
+  TestTanHGradient
+  TestExpLayer
+  TestExpGradient
+  TestExpLayerBase2
+  TestExpGradientBase2
+  TestExpLayerBase2Shift1
+  TestExpGradientBase2Shift1
+  TestExpLayerBase2Scale3
+  TestExpGradientBase2Scale3
+  TestExpLayerBase2Shift1Scale3
+  TestExpGradientBase2Shift1Scale3
+  TestDropoutHalf
+  TestDropoutThreeQuarters
+  TestDropoutTestPhase
+  TestDropoutGradient
+  TestDropoutGradientTest
+  TestBNLL
+  TestBNLLGradient
+  TestPReLUParam
+  TestPReLUForward
+  TestPReLUForwardChannelShared
+  TestPReLUGradient
+  TestPReLUGradientChannelShared
+  TestPReLUConsistencyReLU
+  TestPReLUInPlace
+NeuronLayerTest/2.
+  TestAbsVal
+  TestAbsGradient
+  TestReLU
+  TestReLUGradient
+  TestReLUWithNegativeSlope
+  TestReLUGradientWithNegativeSlope
+  TestSigmoid
+  TestSigmoidGradient
+  TestTanH
+  TestTanHGradient
+  TestExpLayer
+  TestExpGradient
+  TestExpLayerBase2
+  TestExpGradientBase2
+  TestExpLayerBase2Shift1
+  TestExpGradientBase2Shift1
+  TestExpLayerBase2Scale3
+  TestExpGradientBase2Scale3
+  TestExpLayerBase2Shift1Scale3
+  TestExpGradientBase2Shift1Scale3
+  TestDropoutHalf
+  TestDropoutThreeQuarters
+  TestDropoutTestPhase
+  TestDropoutGradient
+  TestDropoutGradientTest
+  TestBNLL
+  TestBNLLGradient
+  TestPReLUParam
+  TestPReLUForward
+  TestPReLUForwardChannelShared
+  TestPReLUGradient
+  TestPReLUGradientChannelShared
+  TestPReLUConsistencyReLU
+  TestPReLUInPlace
+NeuronLayerTest/3.
+  TestAbsVal
+  TestAbsGradient
+  TestReLU
+  TestReLUGradient
+  TestReLUWithNegativeSlope
+  TestReLUGradientWithNegativeSlope
+  TestSigmoid
+  TestSigmoidGradient
+  TestTanH
+  TestTanHGradient
+  TestExpLayer
+  TestExpGradient
+  TestExpLayerBase2
+  TestExpGradientBase2
+  TestExpLayerBase2Shift1
+  TestExpGradientBase2Shift1
+  TestExpLayerBase2Scale3
+  TestExpGradientBase2Scale3
+  TestExpLayerBase2Shift1Scale3
+  TestExpGradientBase2Shift1Scale3
+  TestDropoutHalf
+  TestDropoutThreeQuarters
+  TestDropoutTestPhase
+  TestDropoutGradient
+  TestDropoutGradientTest
+  TestBNLL
+  TestBNLLGradient
+  TestPReLUParam
+  TestPReLUForward
+  TestPReLUForwardChannelShared
+  TestPReLUGradient
+  TestPReLUGradientChannelShared
+  TestPReLUConsistencyReLU
+  TestPReLUInPlace
+EuclideanLossLayerTest/0.
+  TestForward
+  TestGradient
+EuclideanLossLayerTest/1.
+  TestForward
+  TestGradient
+EuclideanLossLayerTest/2.
+  TestForward
+  TestGradient
+EuclideanLossLayerTest/3.
+  TestForward
+  TestGradient
+IOTest.
+  TestReadImageToDatum
+  TestReadImageToDatumReference
+  TestReadImageToDatumReferenceResized
+  TestReadImageToDatumContent
+  TestReadImageToDatumContentGray
+  TestReadImageToDatumResized
+  TestReadImageToDatumResizedSquare
+  TestReadImageToDatumGray
+  TestReadImageToDatumResizedGray
+  TestReadImageToCVMat
+  TestReadImageToCVMatResized
+  TestReadImageToCVMatResizedSquare
+  TestReadImageToCVMatGray
+  TestReadImageToCVMatResizedGray
+  TestCVMatToDatum
+  TestCVMatToDatumContent
+  TestCVMatToDatumReference
+  TestReadFileToDatum
+  TestDecodeDatum
+  TestDecodeDatumToCVMat
+  TestDecodeDatumToCVMatContent
+  TestDecodeDatumNative
+  TestDecodeDatumToCVMatNative
+  TestDecodeDatumNativeGray
+  TestDecodeDatumToCVMatNativeGray
+  TestDecodeDatumToCVMatContentNative
+HDF5OutputLayerTest/0.
+  TestForward
+HDF5OutputLayerTest/1.
+  TestForward
+HDF5OutputLayerTest/2.
+  TestForward
+HDF5OutputLayerTest/3.
+  TestForward
+GemmTest/0.
+  TestGemmCPUGPU
+  TestGemvCPUGPU
+GemmTest/1.
+  TestGemmCPUGPU
+  TestGemvCPUGPU
+DataLayerTest/0.
+  TestReadLevelDB
+  TestReshapeLevelDB
+  TestReadCropTrainLevelDB
+  TestReadCropTrainSequenceSeededLevelDB
+  TestReadCropTrainSequenceUnseededLevelDB
+  TestReadCropTestLevelDB
+  TestReadLMDB
+  TestReshapeLMDB
+  TestReadCropTrainLMDB
+  TestReadCropTrainSequenceSeededLMDB
+  TestReadCropTrainSequenceUnseededLMDB
+  TestReadCropTestLMDB
+DataLayerTest/1.
+  TestReadLevelDB
+  TestReshapeLevelDB
+  TestReadCropTrainLevelDB
+  TestReadCropTrainSequenceSeededLevelDB
+  TestReadCropTrainSequenceUnseededLevelDB
+  TestReadCropTestLevelDB
+  TestReadLMDB
+  TestReshapeLMDB
+  TestReadCropTrainLMDB
+  TestReadCropTrainSequenceSeededLMDB
+  TestReadCropTrainSequenceUnseededLMDB
+  TestReadCropTestLMDB
+DataLayerTest/2.
+  TestReadLevelDB
+  TestReshapeLevelDB
+  TestReadCropTrainLevelDB
+  TestReadCropTrainSequenceSeededLevelDB
+  TestReadCropTrainSequenceUnseededLevelDB
+  TestReadCropTestLevelDB
+  TestReadLMDB
+  TestReshapeLMDB
+  TestReadCropTrainLMDB
+  TestReadCropTrainSequenceSeededLMDB
+  TestReadCropTrainSequenceUnseededLMDB
+  TestReadCropTestLMDB
+DataLayerTest/3.
+  TestReadLevelDB
+  TestReshapeLevelDB
+  TestReadCropTrainLevelDB
+  TestReadCropTrainSequenceSeededLevelDB
+  TestReadCropTrainSequenceUnseededLevelDB
+  TestReadCropTestLevelDB
+  TestReadLMDB
+  TestReshapeLMDB
+  TestReadCropTrainLMDB
+  TestReadCropTrainSequenceSeededLMDB
+  TestReadCropTrainSequenceUnseededLMDB
+  TestReadCropTestLMDB
+ProtoTest.
+  TestSerialization
+MVNLayerTest/0.
+  TestForward
+  TestForwardMeanOnly
+  TestForwardAcrossChannels
+  TestGradient
+  TestGradientMeanOnly
+  TestGradientAcrossChannels
+MVNLayerTest/1.
+  TestForward
+  TestForwardMeanOnly
+  TestForwardAcrossChannels
+  TestGradient
+  TestGradientMeanOnly
+  TestGradientAcrossChannels
+MVNLayerTest/2.
+  TestForward
+  TestForwardMeanOnly
+  TestForwardAcrossChannels
+  TestGradient
+  TestGradientMeanOnly
+  TestGradientAcrossChannels
+MVNLayerTest/3.
+  TestForward
+  TestForwardMeanOnly
+  TestForwardAcrossChannels
+  TestGradient
+  TestGradientMeanOnly
+  TestGradientAcrossChannels
+InnerProductLayerTest/0.
+  TestSetUp
+  TestForward
+  TestGradient
+InnerProductLayerTest/1.
+  TestSetUp
+  TestForward
+  TestGradient
+InnerProductLayerTest/2.
+  TestSetUp
+  TestForward
+  TestGradient
+InnerProductLayerTest/3.
+  TestSetUp
+  TestForward
+  TestGradient
+PowerLayerTest/0.
+  TestPower
+  TestPowerGradient
+  TestPowerGradientShiftZero
+  TestPowerZero
+  TestPowerZeroGradient
+  TestPowerOne
+  TestPowerOneGradient
+  TestPowerTwo
+  TestPowerTwoGradient
+  TestPowerTwoScaleHalfGradient
+PowerLayerTest/1.
+  TestPower
+  TestPowerGradient
+  TestPowerGradientShiftZero
+  TestPowerZero
+  TestPowerZeroGradient
+  TestPowerOne
+  TestPowerOneGradient
+  TestPowerTwo
+  TestPowerTwoGradient
+  TestPowerTwoScaleHalfGradient
+PowerLayerTest/2.
+  TestPower
+  TestPowerGradient
+  TestPowerGradientShiftZero
+  TestPowerZero
+  TestPowerZeroGradient
+  TestPowerOne
+  TestPowerOneGradient
+  TestPowerTwo
+  TestPowerTwoGradient
+  TestPowerTwoScaleHalfGradient
+PowerLayerTest/3.
+  TestPower
+  TestPowerGradient
+  TestPowerGradientShiftZero
+  TestPowerZero
+  TestPowerZeroGradient
+  TestPowerOne
+  TestPowerOneGradient
+  TestPowerTwo
+  TestPowerTwoGradient
+  TestPowerTwoScaleHalfGradient
+ArgMaxLayerTest/0.
+  TestSetup
+  TestSetupMaxVal
+  TestCPU
+  TestCPUMaxVal
+  TestCPUTopK
+  TestCPUMaxValTopK
+ArgMaxLayerTest/1.
+  TestSetup
+  TestSetupMaxVal
+  TestCPU
+  TestCPUMaxVal
+  TestCPUTopK
+  TestCPUMaxValTopK
+DeconvolutionLayerTest/0.
+  TestSetup
+  TestSimpleDeconvolution
+  TestGradient
+DeconvolutionLayerTest/1.
+  TestSetup
+  TestSimpleDeconvolution
+  TestGradient
+DeconvolutionLayerTest/2.
+  TestSetup
+  TestSimpleDeconvolution
+  TestGradient
+DeconvolutionLayerTest/3.
+  TestSetup
+  TestSimpleDeconvolution
+  TestGradient
+BlobSimpleTest/0.
+  TestInitialization
+  TestPointersCPUGPU
+  TestReshape
+  TestLegacyBlobProtoShapeEquals
+BlobSimpleTest/1.
+  TestInitialization
+  TestPointersCPUGPU
+  TestReshape
+  TestLegacyBlobProtoShapeEquals
+BlobMathTest/0.
+  TestSumOfSquares
+  TestAsum
+  TestScaleData
+BlobMathTest/1.
+  TestSumOfSquares
+  TestAsum
+  TestScaleData
+BlobMathTest/2.
+  TestSumOfSquares
+  TestAsum
+  TestScaleData
+BlobMathTest/3.
+  TestSumOfSquares
+  TestAsum
+  TestScaleData
+ReshapeLayerTest/0.
+  TestSetup
+  TestForward
+  TestForwardAfterReshape
+  TestGradient
+ReshapeLayerTest/1.
+  TestSetup
+  TestForward
+  TestForwardAfterReshape
+  TestGradient
+ReshapeLayerTest/2.
+  TestSetup
+  TestForward
+  TestForwardAfterReshape
+  TestGradient
+ReshapeLayerTest/3.
+  TestSetup
+  TestForward
+  TestForwardAfterReshape
+  TestGradient
+TanHLayerTest/0.
+  TestTanH
+  TestTanHOverflow
+  TestTanHGradient
+TanHLayerTest/1.
+  TestTanH
+  TestTanHOverflow
+  TestTanHGradient
+TanHLayerTest/2.
+  TestTanH
+  TestTanHOverflow
+  TestTanHGradient
+TanHLayerTest/3.
+  TestTanH
+  TestTanHOverflow
+  TestTanHGradient
+InfogainLossLayerTest/0.
+  TestGradient
+InfogainLossLayerTest/1.
+  TestGradient
+InfogainLossLayerTest/2.
+  TestGradient
+InfogainLossLayerTest/3.
+  TestGradient
+MaxPoolingDropoutTest/0.
+  TestSetup
+  TestForward
+  TestBackward
+MaxPoolingDropoutTest/1.
+  TestSetup
+  TestForward
+  TestBackward
+MaxPoolingDropoutTest/2.
+  TestSetup
+  TestForward
+  TestBackward
+MaxPoolingDropoutTest/3.
+  TestSetup
+  TestForward
+  TestBackward
+DBTest/0.
+  TestGetDB
+  TestNext
+  TestSeekToFirst
+  TestKeyValue
+  TestWrite
+DBTest/1.
+  TestGetDB
+  TestNext
+  TestSeekToFirst
+  TestKeyValue
+  TestWrite
+Im2colLayerTest/0.
+  TestSetup
+  TestForward
+  TestGradient
+  TestRect
+  TestRectGradient
+Im2colLayerTest/1.
+  TestSetup
+  TestForward
+  TestGradient
+  TestRect
+  TestRectGradient
+Im2colLayerTest/2.
+  TestSetup
+  TestForward
+  TestGradient
+  TestRect
+  TestRectGradient
+Im2colLayerTest/3.
+  TestSetup
+  TestForward
+  TestGradient
+  TestRect
+  TestRectGradient
+InternalThreadTest.
+  TestStartAndExit
+CommonTest.
+  TestCublasHandlerGPU
+  TestBrewMode
+  TestRandSeedCPU
+  TestRandSeedGPU
+SyncedMemoryTest.
+  TestInitialization
+  TestAllocationCPUGPU
+  TestAllocationCPU
+  TestAllocationGPU
+  TestCPUWrite
+  TestGPURead
+  TestGPUWrite
+SGDSolverTest/0.
+  TestLeastSquaresUpdate
+  TestLeastSquaresUpdateLROneTenth
+  TestLeastSquaresUpdateWithWeightDecay
+  TestLeastSquaresUpdateWithMomentum
+  TestLeastSquaresUpdateWithMomentumMultiIter
+  TestLeastSquaresUpdateWithEverything
+SGDSolverTest/1.
+  TestLeastSquaresUpdate
+  TestLeastSquaresUpdateLROneTenth
+  TestLeastSquaresUpdateWithWeightDecay
+  TestLeastSquaresUpdateWithMomentum
+  TestLeastSquaresUpdateWithMomentumMultiIter
+  TestLeastSquaresUpdateWithEverything
+SGDSolverTest/2.
+  TestLeastSquaresUpdate
+  TestLeastSquaresUpdateLROneTenth
+  TestLeastSquaresUpdateWithWeightDecay
+  TestLeastSquaresUpdateWithMomentum
+  TestLeastSquaresUpdateWithMomentumMultiIter
+  TestLeastSquaresUpdateWithEverything
+SGDSolverTest/3.
+  TestLeastSquaresUpdate
+  TestLeastSquaresUpdateLROneTenth
+  TestLeastSquaresUpdateWithWeightDecay
+  TestLeastSquaresUpdateWithMomentum
+  TestLeastSquaresUpdateWithMomentumMultiIter
+  TestLeastSquaresUpdateWithEverything
+AdaGradSolverTest/0.
+  TestAdaGradLeastSquaresUpdate
+  TestAdaGradLeastSquaresUpdateLROneTenth
+  TestAdaGradLeastSquaresUpdateWithWeightDecay
+  TestAdaGradLeastSquaresUpdateWithEverything
+AdaGradSolverTest/1.
+  TestAdaGradLeastSquaresUpdate
+  TestAdaGradLeastSquaresUpdateLROneTenth
+  TestAdaGradLeastSquaresUpdateWithWeightDecay
+  TestAdaGradLeastSquaresUpdateWithEverything
+AdaGradSolverTest/2.
+  TestAdaGradLeastSquaresUpdate
+  TestAdaGradLeastSquaresUpdateLROneTenth
+  TestAdaGradLeastSquaresUpdateWithWeightDecay
+  TestAdaGradLeastSquaresUpdateWithEverything
+AdaGradSolverTest/3.
+  TestAdaGradLeastSquaresUpdate
+  TestAdaGradLeastSquaresUpdateLROneTenth
+  TestAdaGradLeastSquaresUpdateWithWeightDecay
+  TestAdaGradLeastSquaresUpdateWithEverything
+NesterovSolverTest/0.
+  TestNesterovLeastSquaresUpdate
+  TestNesterovLeastSquaresUpdateLROneTenth
+  TestNesterovLeastSquaresUpdateWithWeightDecay
+  TestNesterovLeastSquaresUpdateWithMomentum
+  TestLeastSquaresUpdateWithMomentumMultiIter
+  TestNesterovLeastSquaresUpdateWithEverything
+NesterovSolverTest/1.
+  TestNesterovLeastSquaresUpdate
+  TestNesterovLeastSquaresUpdateLROneTenth
+  TestNesterovLeastSquaresUpdateWithWeightDecay
+  TestNesterovLeastSquaresUpdateWithMomentum
+  TestLeastSquaresUpdateWithMomentumMultiIter
+  TestNesterovLeastSquaresUpdateWithEverything
+NesterovSolverTest/2.
+  TestNesterovLeastSquaresUpdate
+  TestNesterovLeastSquaresUpdateLROneTenth
+  TestNesterovLeastSquaresUpdateWithWeightDecay
+  TestNesterovLeastSquaresUpdateWithMomentum
+  TestLeastSquaresUpdateWithMomentumMultiIter
+  TestNesterovLeastSquaresUpdateWithEverything
+NesterovSolverTest/3.
+  TestNesterovLeastSquaresUpdate
+  TestNesterovLeastSquaresUpdateLROneTenth
+  TestNesterovLeastSquaresUpdateWithWeightDecay
+  TestNesterovLeastSquaresUpdateWithMomentum
+  TestLeastSquaresUpdateWithMomentumMultiIter
+  TestNesterovLeastSquaresUpdateWithEverything
+ConvolutionLayerTest/0.
+  TestSetup
+  TestSimpleConvolution
+  Test1x1Convolution
+  TestSimpleConvolutionGroup
+  TestSobelConvolution
+  TestGradient
+  Test1x1Gradient
+  TestGradientGroup
+ConvolutionLayerTest/1.
+  TestSetup
+  TestSimpleConvolution
+  Test1x1Convolution
+  TestSimpleConvolutionGroup
+  TestSobelConvolution
+  TestGradient
+  Test1x1Gradient
+  TestGradientGroup
+ConvolutionLayerTest/2.
+  TestSetup
+  TestSimpleConvolution
+  Test1x1Convolution
+  TestSimpleConvolutionGroup
+  TestSobelConvolution
+  TestGradient
+  Test1x1Gradient
+  TestGradientGroup
+ConvolutionLayerTest/3.
+  TestSetup
+  TestSimpleConvolution
+  Test1x1Convolution
+  TestSimpleConvolutionGroup
+  TestSobelConvolution
+  TestGradient
+  Test1x1Gradient
+  TestGradientGroup
+RandomNumberGeneratorTest/0.
+  TestRngGaussian
+  TestRngGaussian2
+  TestRngUniform
+  TestRngUniform2
+  TestRngBernoulli
+  TestRngBernoulli2
+  TestRngGaussianTimesGaussian
+  TestRngUniformTimesUniform
+  TestRngGaussianTimesBernoulli
+  TestRngUniformTimesBernoulli
+  TestRngBernoulliTimesBernoulli
+  TestRngGaussianGPU
+  TestRngGaussian2GPU
+  TestRngUniformGPU
+  TestRngUniform2GPU
+  TestRngUniformIntGPU
+  TestRngGaussianTimesGaussianGPU
+  TestRngUniformTimesUniformGPU
+RandomNumberGeneratorTest/1.
+  TestRngGaussian
+  TestRngGaussian2
+  TestRngUniform
+  TestRngUniform2
+  TestRngBernoulli
+  TestRngBernoulli2
+  TestRngGaussianTimesGaussian
+  TestRngUniformTimesUniform
+  TestRngGaussianTimesBernoulli
+  TestRngUniformTimesBernoulli
+  TestRngBernoulliTimesBernoulli
+  TestRngGaussianGPU
+  TestRngGaussian2GPU
+  TestRngUniformGPU
+  TestRngUniform2GPU
+  TestRngUniformIntGPU
+  TestRngGaussianTimesGaussianGPU
+  TestRngUniformTimesUniformGPU
+LayerFactoryTest/0.
+  TestCreateLayer
+LayerFactoryTest/1.
+  TestCreateLayer
+LayerFactoryTest/2.
+  TestCreateLayer
+LayerFactoryTest/3.
+  TestCreateLayer
+PaddingLayerUpgradeTest.
+  TestSimple
+  TestTwoTops
+  TestImageNet
+NetUpgradeTest.
+  TestSimple
+  TestAllParams
+  TestImageNet
+  TestUpgradeV1LayerType
+DataTransformTest/0.
+  TestEmptyTransform
+  TestEmptyTransformUniquePixels
+  TestCropSize
+  TestCropTrain
+  TestCropTest
+  TestMirrorTrain
+  TestMirrorTest
+  TestCropMirrorTrain
+  TestCropMirrorTest
+  TestMeanValue
+  TestMeanValues
+  TestMeanFile
+DataTransformTest/1.
+  TestEmptyTransform
+  TestEmptyTransformUniquePixels
+  TestCropSize
+  TestCropTrain
+  TestCropTest
+  TestMirrorTrain
+  TestMirrorTest
+  TestCropMirrorTrain
+  TestCropMirrorTest
+  TestMeanValue
+  TestMeanValues
+  TestMeanFile
+ThresholdLayerTest/0.
+  TestSetup
+  Test
+  Test2
+ThresholdLayerTest/1.
+  TestSetup
+  Test
+  Test2
+ThresholdLayerTest/2.
+  TestSetup
+  Test
+  Test2
+ThresholdLayerTest/3.
+  TestSetup
+  Test
+  Test2
+SliceLayerTest/0.
+  TestSetupNum
+  TestSetupChannels
+  TestSliceAcrossNum
+  TestSliceAcrossChannels
+  TestGradientAcrossNum
+  TestGradientAcrossChannels
+SliceLayerTest/1.
+  TestSetupNum
+  TestSetupChannels
+  TestSliceAcrossNum
+  TestSliceAcrossChannels
+  TestGradientAcrossNum
+  TestGradientAcrossChannels
+SliceLayerTest/2.
+  TestSetupNum
+  TestSetupChannels
+  TestSliceAcrossNum
+  TestSliceAcrossChannels
+  TestGradientAcrossNum
+  TestGradientAcrossChannels
+SliceLayerTest/3.
+  TestSetupNum
+  TestSetupChannels
+  TestSliceAcrossNum
+  TestSliceAcrossChannels
+  TestGradientAcrossNum
+  TestGradientAcrossChannels
+RNNLayerTest/0.
+  TestSetUp
+  TestForward
+  TestGradient
+  TestGradientNonZeroFlush
+  TestGradientNonZeroFlushBufferSize2
+RNNLayerTest/1.
+  TestSetUp
+  TestForward
+  TestGradient
+  TestGradientNonZeroFlush
+  TestGradientNonZeroFlushBufferSize2
+RNNLayerTest/2.
+  TestSetUp
+  TestForward
+  TestGradient
+  TestGradientNonZeroFlush
+  TestGradientNonZeroFlushBufferSize2
+RNNLayerTest/3.
+  TestSetUp
+  TestForward
+  TestGradient
+  TestGradientNonZeroFlush
+  TestGradientNonZeroFlushBufferSize2
+SplitLayerTest/0.
+  TestSetup
+  Test
+  TestGradient
+SplitLayerTest/1.
+  TestSetup
+  Test
+  TestGradient
+SplitLayerTest/2.
+  TestSetup
+  Test
+  TestGradient
+SplitLayerTest/3.
+  TestSetup
+  Test
+  TestGradient
+SplitLayerInsertionTest.
+  TestNoInsertion1
+  TestNoInsertion2
+  TestNoInsertionImageNet
+  TestNoInsertionWithInPlace
+  TestLossInsertion
+  TestInsertion
+  TestInsertionTwoTop
+  TestInputInsertion
+  TestWithInPlace
+HingeLossLayerTest/0.
+  TestGradientL1
+  TestGradientL2
+HingeLossLayerTest/1.
+  TestGradientL1
+  TestGradientL2
+HingeLossLayerTest/2.
+  TestGradientL1
+  TestGradientL2
+HingeLossLayerTest/3.
+  TestGradientL1
+  TestGradientL2
+FlattenLayerTest/0.
+  TestSetup
+  Test
+  TestGradient
+FlattenLayerTest/1.
+  TestSetup
+  Test
+  TestGradient
+FlattenLayerTest/2.
+  TestSetup
+  Test
+  TestGradient
+FlattenLayerTest/3.
+  TestSetup
+  Test
+  TestGradient
+LRNLayerTest/0.
+  TestSetupAcrossChannels
+  TestForwardAcrossChannels
+  TestGradientAcrossChannels
+  TestSetupWithinChannel
+  TestForwardWithinChannel
+  TestGradientWithinChannel
+LRNLayerTest/1.
+  TestSetupAcrossChannels
+  TestForwardAcrossChannels
+  TestGradientAcrossChannels
+  TestSetupWithinChannel
+  TestForwardWithinChannel
+  TestGradientWithinChannel
+LRNLayerTest/2.
+  TestSetupAcrossChannels
+  TestForwardAcrossChannels
+  TestGradientAcrossChannels
+  TestSetupWithinChannel
+  TestForwardWithinChannel
+  TestGradientWithinChannel
+LRNLayerTest/3.
+  TestSetupAcrossChannels
+  TestForwardAcrossChannels
+  TestGradientAcrossChannels
+  TestSetupWithinChannel
+  TestForwardWithinChannel
+  TestGradientWithinChannel
+BenchmarkTest/0.
+  TestTimerConstructor
+  TestTimerStart
+  TestTimerStop
+  TestTimerMilliSeconds
+  TestTimerSeconds
+BenchmarkTest/1.
+  TestTimerConstructor
+  TestTimerStart
+  TestTimerStop
+  TestTimerMilliSeconds
+  TestTimerSeconds
+BenchmarkTest/2.
+  TestTimerConstructor
+  TestTimerStart
+  TestTimerStop
+  TestTimerMilliSeconds
+  TestTimerSeconds
+BenchmarkTest/3.
+  TestTimerConstructor
+  TestTimerStart
+  TestTimerStop
+  TestTimerMilliSeconds
+  TestTimerSeconds
+PoolingLayerTest/0.
+  TestSetup
+  TestSetupPadded
+  TestSetupGlobalPooling
+  TestForwardMax
+  TestForwardMaxTopMask
+  TestGradientMax
+  TestForwardMaxPadded
+  TestGradientMaxTopMask
+  TestForwardAve
+  TestGradientAve
+  TestGradientAvePadded
+PoolingLayerTest/1.
+  TestSetup
+  TestSetupPadded
+  TestSetupGlobalPooling
+  TestForwardMax
+  TestForwardMaxTopMask
+  TestGradientMax
+  TestForwardMaxPadded
+  TestGradientMaxTopMask
+  TestForwardAve
+  TestGradientAve
+  TestGradientAvePadded
+PoolingLayerTest/2.
+  TestSetup
+  TestSetupPadded
+  TestSetupGlobalPooling
+  TestForwardMax
+  TestForwardMaxTopMask
+  TestGradientMax
+  TestForwardMaxPadded
+  TestGradientMaxTopMask
+  TestForwardAve
+  TestGradientAve
+  TestGradientAvePadded
+PoolingLayerTest/3.
+  TestSetup
+  TestSetupPadded
+  TestSetupGlobalPooling
+  TestForwardMax
+  TestForwardMaxTopMask
+  TestGradientMax
+  TestForwardMaxPadded
+  TestGradientMaxTopMask
+  TestForwardAve
+  TestGradientAve
+  TestGradientAvePadded
+SoftmaxLayerTest/0.
+  TestForward
+  TestGradient
+SoftmaxLayerTest/1.
+  TestForward
+  TestGradient
+SoftmaxLayerTest/2.
+  TestForward
+  TestGradient
+SoftmaxLayerTest/3.
+  TestForward
+  TestGradient
+MemoryDataLayerTest/0.
+  TestSetup
+  TestForward
+  AddDatumVectorDefaultTransform
+  AddMatVectorDefaultTransform
+  TestSetBatchSize
+MemoryDataLayerTest/1.
+  TestSetup
+  TestForward
+  AddDatumVectorDefaultTransform
+  AddMatVectorDefaultTransform
+  TestSetBatchSize
+MemoryDataLayerTest/2.
+  TestSetup
+  TestForward
+  AddDatumVectorDefaultTransform
+  AddMatVectorDefaultTransform
+  TestSetBatchSize
+MemoryDataLayerTest/3.
+  TestSetup
+  TestForward
+  AddDatumVectorDefaultTransform
+  AddMatVectorDefaultTransform
+  TestSetBatchSize
+SolverTest/0.
+  TestInitTrainTestNets
+SolverTest/1.
+  TestInitTrainTestNets
+SolverTest/2.
+  TestInitTrainTestNets
+SolverTest/3.
+  TestInitTrainTestNets
+SoftmaxWithLossLayerTest/0.
+  TestGradient
+  TestForwardIgnoreLabel
+  TestGradientIgnoreLabel
+  TestGradientUnnormalized
+SoftmaxWithLossLayerTest/1.
+  TestGradient
+  TestForwardIgnoreLabel
+  TestGradientIgnoreLabel
+  TestGradientUnnormalized
+SoftmaxWithLossLayerTest/2.
+  TestGradient
+  TestForwardIgnoreLabel
+  TestGradientIgnoreLabel
+  TestGradientUnnormalized
+SoftmaxWithLossLayerTest/3.
+  TestGradient
+  TestForwardIgnoreLabel
+  TestGradientIgnoreLabel
+  TestGradientUnnormalized
+ConstantFillerTest/0.
+  TestFill
+ConstantFillerTest/1.
+  TestFill
+UniformFillerTest/0.
+  TestFill
+UniformFillerTest/1.
+  TestFill
+PositiveUnitballFillerTest/0.
+  TestFill
+PositiveUnitballFillerTest/1.
+  TestFill
+GaussianFillerTest/0.
+  TestFill
+GaussianFillerTest/1.
+  TestFill
+PlatformTest.
+  TestInitialization
+ConcatLayerTest/0.
+  TestSetupNum
+  TestSetupChannels
+  TestSetupChannelsNegativeIndexing
+  TestForwardNum
+  TestForwardChannels
+  TestGradientNum
+  TestGradientChannels
+ConcatLayerTest/1.
+  TestSetupNum
+  TestSetupChannels
+  TestSetupChannelsNegativeIndexing
+  TestForwardNum
+  TestForwardChannels
+  TestGradientNum
+  TestGradientChannels
+ConcatLayerTest/2.
+  TestSetupNum
+  TestSetupChannels
+  TestSetupChannelsNegativeIndexing
+  TestForwardNum
+  TestForwardChannels
+  TestGradientNum
+  TestGradientChannels
+ConcatLayerTest/3.
+  TestSetupNum
+  TestSetupChannels
+  TestSetupChannelsNegativeIndexing
+  TestForwardNum
+  TestForwardChannels
+  TestGradientNum
+  TestGradientChannels
+AccuracyLayerTest/0.
+  TestSetup
+  TestSetupTopK
+  TestForwardCPU
+  TestForwardWithSpatialAxes
+  TestForwardIgnoreLabel
+  TestForwardCPUTopK
+AccuracyLayerTest/1.
+  TestSetup
+  TestSetupTopK
+  TestForwardCPU
+  TestForwardWithSpatialAxes
+  TestForwardIgnoreLabel
+  TestForwardCPUTopK
+HDF5DataLayerTest/0.
+  TestRead
+HDF5DataLayerTest/1.
+  TestRead
+HDF5DataLayerTest/2.
+  TestRead
+HDF5DataLayerTest/3.
+  TestRead
+ContrastiveLossLayerTest/0.
+  TestForward
+  TestGradient
+ContrastiveLossLayerTest/1.
+  TestForward
+  TestGradient
+ContrastiveLossLayerTest/2.
+  TestForward
+  TestGradient
+ContrastiveLossLayerTest/3.
+  TestForward
+  TestGradient
+MathFunctionsTest/0.
+  TestNothing
+  TestHammingDistanceCPU
+  TestAsumCPU
+  TestSignCPU
+  TestSgnbitCPU
+  TestFabsCPU
+  TestScaleCPU
+  TestCopyCPU
+  DISABLED_TestHammingDistanceGPU
+  TestAsumGPU
+  TestSignGPU
+  TestSgnbitGPU
+  TestFabsGPU
+  TestScaleGPU
+  TestCopyGPU
+MathFunctionsTest/1.
+  TestNothing
+  TestHammingDistanceCPU
+  TestAsumCPU
+  TestSignCPU
+  TestSgnbitCPU
+  TestFabsCPU
+  TestScaleCPU
+  TestCopyCPU
+  DISABLED_TestHammingDistanceGPU
+  TestAsumGPU
+  TestSignGPU
+  TestSgnbitGPU
+  TestFabsGPU
+  TestScaleGPU
+  TestCopyGPU
+DummyDataLayerTest/0.
+  TestOneTopConstant
+  TestTwoTopConstant
+  TestThreeTopConstantGaussianConstant
+DummyDataLayerTest/1.
+  TestOneTopConstant
+  TestTwoTopConstant
+  TestThreeTopConstantGaussianConstant
+NetTest/0.
+  TestHasBlob
+  TestGetBlob
+  TestHasLayer
+  TestGetLayerByName
+  TestBottomNeedBackward
+  TestBottomNeedBackwardForce
+  TestBottomNeedBackwardEuclideanForce
+  TestBottomNeedBackwardTricky
+  TestLossWeight
+  TestLossWeightMidNet
+  TestComboLossWeight
+  TestBackwardWithAccuracyLayer
+  TestUnsharedWeightsDataNet
+  TestSharedWeightsDataNet
+  TestUnsharedWeightsDiffNet
+  TestSharedWeightsDiffNet
+  TestSharedWeightsUpdate
+  TestSharedWeightsResume
+  TestParamPropagateDown
+  TestFromTo
+  TestReshape
+NetTest/1.
+  TestHasBlob
+  TestGetBlob
+  TestHasLayer
+  TestGetLayerByName
+  TestBottomNeedBackward
+  TestBottomNeedBackwardForce
+  TestBottomNeedBackwardEuclideanForce
+  TestBottomNeedBackwardTricky
+  TestLossWeight
+  TestLossWeightMidNet
+  TestComboLossWeight
+  TestBackwardWithAccuracyLayer
+  TestUnsharedWeightsDataNet
+  TestSharedWeightsDataNet
+  TestUnsharedWeightsDiffNet
+  TestSharedWeightsDiffNet
+  TestSharedWeightsUpdate
+  TestSharedWeightsResume
+  TestParamPropagateDown
+  TestFromTo
+  TestReshape
+NetTest/2.
+  TestHasBlob
+  TestGetBlob
+  TestHasLayer
+  TestGetLayerByName
+  TestBottomNeedBackward
+  TestBottomNeedBackwardForce
+  TestBottomNeedBackwardEuclideanForce
+  TestBottomNeedBackwardTricky
+  TestLossWeight
+  TestLossWeightMidNet
+  TestComboLossWeight
+  TestBackwardWithAccuracyLayer
+  TestUnsharedWeightsDataNet
+  TestSharedWeightsDataNet
+  TestUnsharedWeightsDiffNet
+  TestSharedWeightsDiffNet
+  TestSharedWeightsUpdate
+  TestSharedWeightsResume
+  TestParamPropagateDown
+  TestFromTo
+  TestReshape
+NetTest/3.
+  TestHasBlob
+  TestGetBlob
+  TestHasLayer
+  TestGetLayerByName
+  TestBottomNeedBackward
+  TestBottomNeedBackwardForce
+  TestBottomNeedBackwardEuclideanForce
+  TestBottomNeedBackwardTricky
+  TestLossWeight
+  TestLossWeightMidNet
+  TestComboLossWeight
+  TestBackwardWithAccuracyLayer
+  TestUnsharedWeightsDataNet
+  TestSharedWeightsDataNet
+  TestUnsharedWeightsDiffNet
+  TestSharedWeightsDiffNet
+  TestSharedWeightsUpdate
+  TestSharedWeightsResume
+  TestParamPropagateDown
+  TestFromTo
+  TestReshape
+FilterNetTest.
+  TestNoFilter
+  TestFilterLeNetTrainTest
+  TestFilterOutByStage
+  TestFilterOutByStage2
+  TestFilterInByStage
+  TestFilterInByStage2
+  TestFilterOutByMultipleStage
+  TestFilterInByMultipleStage
+  TestFilterInByMultipleStage2
+  TestFilterInByNotStage
+  TestFilterOutByNotStage
+  TestFilterOutByMinLevel
+  TestFilterOutByMaxLevel
+  TestFilterInByMinLevel
+  TestFilterInByMinLevel2
+  TestFilterInByMaxLevel
+  TestFilterInByMaxLevel2
+  TestFilterInOutByIncludeMultiRule
+  TestFilterInByIncludeMultiRule
+  TestFilterInOutByExcludeMultiRule
+Im2colKernelTest/0.
+  TestGPU
+Im2colKernelTest/1.
+  TestGPU

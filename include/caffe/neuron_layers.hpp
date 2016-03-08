@@ -786,7 +786,7 @@ class PReLULayer : public NeuronLayer<Dtype> {
 };
 
 ////////////////////////////////////////////////////////// by Eddie
-// Non-parametric Rectified Linear Unit
+// Non-parametric Rectified Linear Unit (Sigmoid)
 // y_i = \max(0, x_i) + beta_i * sigmoid(x_i)
 
 template <typename Dtype>
@@ -823,6 +823,48 @@ class NonParaReLUSigmoidLayer : public NeuronLayer<Dtype> {
 
   bool channel_shared_;
   Blob<Dtype> multiplier_;  // dot multipler for backward computation of params
+  Blob<Dtype> bottom_memory_;  // memory for in-place computation
+};
+
+// Non-parametric Rectified Linear Unit (Sin / cos)
+// y_i = \max(0, x_i) + beta_i_1 * sin(x_i) + beta_i_2 * cos(x_i)
+
+template <typename Dtype>
+class NonParaReLUSinCosLayer : public NeuronLayer<Dtype> {
+ public:
+  /**
+   * @param param provides NonParaReLUSinCosParameter prelu_param,
+   *     with NonParaReLUSinCosLayer options:
+   *   - filler (\b optional, FillerParameter,
+   *     default {'type': constant 'value': 0.0}).
+   *   - channel_shared (\b optional, default false).
+   *     betas are shared across channels.
+   */
+  explicit NonParaReLUSinCosLayer(const LayerParameter& param)
+      : NeuronLayer<Dtype>(param) {}
+
+  virtual void LayerSetUp(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top);
+
+  virtual void Reshape(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top);
+
+  virtual inline const char* type() const { return "NonParaReLUSinCos"; }
+
+ protected:
+  virtual void Forward_cpu(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top);
+  virtual void Forward_gpu(const vector<Blob<Dtype>*>& bottom,
+      const vector<Blob<Dtype>*>& top);
+  virtual void Backward_cpu(const vector<Blob<Dtype>*>& top,
+      const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom);
+  virtual void Backward_gpu(const vector<Blob<Dtype>*>& top,
+      const vector<bool>& propagate_down, const vector<Blob<Dtype>*>& bottom);
+
+  bool channel_shared_;
+  Blob<Dtype> multiplier_sin_;  // dot multiplers for backward computation of params
+  Blob<Dtype> multiplier_cos_;
+  // Blob<Dtype> multiplier_;
   Blob<Dtype> bottom_memory_;  // memory for in-place computation
 };
 ////////////////////////////////////////////////////////// by Eddie

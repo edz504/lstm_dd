@@ -17,7 +17,7 @@ void NonParaReLUSigmoidLayer<Dtype>::LayerSetUp(const vector<Blob<Dtype>*>& bott
     const vector<Blob<Dtype>*>& top) {
   CHECK_GE(bottom[0]->num_axes(), 2)
       << "Number of axes of bottom blob must be >=2.";
-  NonParaReLUSigmoidParameter nprelu_param = this->layer_param().nprelu_param();
+  NonParaReLUSigmoidParameter nprelu_param = this->layer_param().nprelu_sigmoid_param();
   int channels = bottom[0]->channels();
   channel_shared_ = nprelu_param.channel_shared();
   if (this->blobs_.size() > 0) {

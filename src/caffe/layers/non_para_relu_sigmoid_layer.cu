@@ -36,7 +36,6 @@ template <typename Dtype>
 __global__ void NonParaReLUSigmoidParamBackward(const int n, const Dtype* in_diff,
     const Dtype* in_data, Dtype* out_diff) {
   CUDA_KERNEL_LOOP(index, n) {
-    out_diff[index] = in_diff[index] * in_data[index] * (in_data[index] <= 0);
     out_diff[index] = in_diff[index] * 1. / (1. + exp(-in_data[index]));
   }
 }
