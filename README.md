@@ -1,3 +1,6 @@
+# Please see [my senior thesis repo](https://github.com/edz504/thesis) for documented additions to the base Caffe directory.  The content below is included directly from the master branch of Caffe.
+
+
 # Caffe
 
 Caffe is a deep learning framework made with expression, speed, and modularity in mind.
